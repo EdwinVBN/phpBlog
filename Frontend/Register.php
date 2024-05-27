@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <label for="Username">Username</label><br>
-        <input type="text"><br><br>
+    <form action="../classes/Class.User.php" method="post">
+        <label for="username">Username</label><br>
+        <input name="username" type="text"><br><br>
 
         <label for="password">password</label><br>
-        <input type="password"><br><br>
+        <input name="password" type="password"><br><br>
         <button type="submit">Submit</button>
     </form>
 </body>

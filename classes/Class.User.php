@@ -1,27 +1,39 @@
 <?php
-require_once('../DB.php');
+require_once('../DB/DB.php');
 
 class User extends DBConnectie {
 
-    public $naam;
+    public $username;
     public $password;
 
     public function registerUser($data){
 
         try{
-            $this->naam = $data['naam'];
-            $this->password = password_hash($data['password'], PASSWORD_BCRYPT);
+            $this->username = $_POST['username'];
+            $this->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-            $query = "INSERT INTO users (naam, password) VALUES (:naam, :password)";
+            $query = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
             $this->connect();
             $stmt = $this->conn->prepare($query);
-            $stmt->bindparam(':naam', $this->naam);
+
+            $stmt->bindparam(':username', $this->username);
             $stmt->bindparam(':password', $this->password);
 
+            $stmt->execute();
+
+            $this->conn = null;
+            
+
+            header("Location: ../Frontend/home.php");
+
+        }catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
         }
     }
-
 }
+
+$user = new User();
+$user->registerUser($_POST);
 
 ?>
