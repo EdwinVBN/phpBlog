@@ -31,6 +31,16 @@ class User extends DBConnectie {
             return "Error: " . $e->getMessage();
         }
     }
+
+    public function loginUser($data){
+
+        session_start();
+
+        if (isset($_POST['username'])) {
+            
+        }
+
+    }
 }
 
 $user = new User();
