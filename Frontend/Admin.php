@@ -6,10 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <a href="./Register.php">Register</a>
-        <a href="./login.php">Login</a>
-    </header>
-    home
+    admin
 </body>
 </html>
