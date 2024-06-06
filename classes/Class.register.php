@@ -33,7 +33,7 @@ class User extends DBConnectie {
             $this->conn = null;
             
 
-            header("Location: ../Frontend/home.php");
+            header("Location: ../Frontend/Admin.php");
             exit();
         } catch(PDOException $e){
             echo "Error: " . $e->getMessage();

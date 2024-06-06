@@ -1,3 +1,9 @@
+<?php
+    include_once '../classes/Class.fetchUser.php';
+    $users = new user();
+    $users->fetchuser();
+?>  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +26,18 @@
         </select>
 
         <button type="submit">Submit</button>
+    </form>
+
+    <br><br><br>
+
+    <form action="../classes/Class.deleteUSer.php">
+        <label for="Users">Users</label>
+        <select name="Users">
+            <?php foreach($users->fetchuser() as $user): ?>
+                <option value="<?php echo $user['id'] ?>"><?php echo $user['username'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit">Delete</button>
     </form>
 </body>
 </html>
