@@ -30,14 +30,13 @@
 
     <br><br><br>
 
-    <form action="../classes/Class.deleteUSer.php">
-        <label for="Users">Users</label>
-        <select name="Users">
-            <?php foreach($users->fetchuser() as $user): ?>
-                <option value="<?php echo $user['id'] ?>"><?php echo $user['username'] ?></option>
+    <form action="../classes/Class.deleteUser.php" method="POST">
+        <label for="userID">Users</label>
+        <select name="userID" id="userID">
+            <?php foreach ($users->fetchuser() as $user): ?>
+                <option value="<?php echo $user['id']; ?>"><?php echo htmlspecialchars($user['username']); ?></option>
             <?php endforeach; ?>
         </select>
         <button type="submit">Delete</button>
-    </form>
 </body>
 </html>

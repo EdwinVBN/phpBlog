@@ -1,6 +1,5 @@
 <?php
 require_once('../DB/DB.php');
-require_once('../classes/Class.delete.php');
 
 class User extends DBConnectie {
 
