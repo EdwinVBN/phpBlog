@@ -2,6 +2,7 @@
     include_once '../classes/Class.fetchUser.php';
     $users = new user();
     $users->fetchuser();
+
 ?>  
 
 <!DOCTYPE html>

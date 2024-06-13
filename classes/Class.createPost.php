@@ -20,10 +20,6 @@ class CreatePost extends DBConnectie {
 
     public function createPost()
     {
-        echo "User ID: " . $_SESSION['id'];
-        print_r($_SESSION);
-        var_dump($_SESSION); // Output detailed information about the $_SESSION array
-
 
         if (empty($this->title) || empty($this->description) || empty($this->content) || empty($this->user_id)) {
             echo "All fields are required.";

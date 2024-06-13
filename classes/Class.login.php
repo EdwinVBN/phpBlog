@@ -18,6 +18,7 @@ class User extends DBConnectie {
 
         session_start();
 
+
         if (isset($this->username) && isset($this->password)) {
             $query = 'SELECT * FROM users WHERE username = :username';
             try{
@@ -36,6 +37,7 @@ class User extends DBConnectie {
                 if ($user && password_verify($this->password, $user['password'])) {
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['rol'] = $user['rol'];
+                    $_SESSION['user_id'] = $user['id'];
 
 
                     if ($_SESSION['rol'] = 1){
