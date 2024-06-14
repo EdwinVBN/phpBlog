@@ -13,6 +13,12 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="./Admin.php">admin</a>
+            <a href="../classes/Class.logout.php">logout</a>
+        </nav>
+    </header>
     <form action="../classes/Class.register.php" method="post">
         <label for="username">Username</label><br>
         <input name="username" type="text"><br><br>

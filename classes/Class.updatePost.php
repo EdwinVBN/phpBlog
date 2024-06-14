@@ -8,6 +8,7 @@ class UpdatePost extends DBConnectie {
     public $content;
     public $postId;
     public $selectTitle;
+    public $date;
     public function __construct() {
         if (isset($_POST['selectTitle'])) {
             $this->selectTitle = $_POST['selectTitle'];
@@ -16,6 +17,7 @@ class UpdatePost extends DBConnectie {
             $this->title = $_POST['title'];
             $this->description = $_POST['description'];
             $this->content = $_POST['content'];
+            $this->date = date('Y-m-d H:i:s');
         }
     }
 
@@ -35,7 +37,7 @@ class UpdatePost extends DBConnectie {
     }
 
     public function updatePost(){
-        $query = 'UPDATE posts SET title = :title, description = :description, content = :content WHERE id = :id';
+        $query = 'UPDATE posts SET title = :title, description = :description, content = :content, updated_on = :updated_on WHERE id = :id';
 
         $this->connect();
         $stmt = $this->conn->prepare($query);
@@ -44,6 +46,7 @@ class UpdatePost extends DBConnectie {
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':content', $this->content);
         $stmt->bindParam(':id', $this->postId);
+        $stmt->bindParam(':updated_on', $this->date);
 
         $stmt->execute();
         $this->conn = null;

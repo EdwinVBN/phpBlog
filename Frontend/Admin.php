@@ -35,6 +35,17 @@
                 <br><br>
                 <button type="submit">Post</button>
             </form>
+            <h1>blog deleter</h1>
+            <section>
+                <form action="../classes/Class.deletePost.php" method="post">
+                    <select name="deletetitle" id="">
+                        <?php foreach( $allPost as $post ): ?>
+                            <option value="<?php echo htmlspecialchars($post['title']); ?>"><?php echo htmlspecialchars($post['title']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="submit">delete</button>
+                </form>
+            </section>
         </section>
         <section id="adminrecht">
             <section id="postoverzicht">
@@ -42,14 +53,12 @@
                 <?php foreach( $posts->fetchPost() as $posts ): ?>
                     <article>
                         <h3><?php echo htmlspecialchars($posts['title']); ?></h3>
-                        <h6><?php echo"created on";?></h6>
-                        <p><?php echo htmlspecialchars($posts['created_on']); ?></p>
                         <br>
+                        <p>created_on: <?php echo htmlspecialchars($posts['created_on']); ?> - updated_on: <?php echo htmlspecialchars($posts['updated_on'])?></p>
                     </article>
                 <?php endforeach; ?>
             </section>
             <section id="updatepost">
-                <!-- <h2>update Post</h2> -->
                 <form action="../classes/Class.updatePost.php" method="post" id="updateform">
                     <section id="updatetext">
                         <?php foreach( $allPost as $post ): ?>

@@ -1,5 +1,7 @@
 <?php
 require_once('../DB/DB.php');
+session_start();
+
 
 class User extends DBConnectie {
 
@@ -16,7 +18,6 @@ class User extends DBConnectie {
     
     public function loginUser($data){
 
-        session_start();
 
 
         if (isset($this->username) && isset($this->password)) {
@@ -40,7 +41,7 @@ class User extends DBConnectie {
                     $_SESSION['user_id'] = $user['id'];
 
 
-                    if ($_SESSION['rol'] = 1){
+                    if ($_SESSION['rol'] === 1){
                         header("Location: ../Frontend/Admin.php");
                     }else{
                         header("Location: ../Frontend/home.php");
