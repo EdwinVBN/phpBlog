@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../classes/Class.fetchpost.php');
     $posts = new FetchPosts();
     $allPost = $posts->fetchPost();

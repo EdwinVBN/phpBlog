@@ -1,8 +1,9 @@
 <?php
     session_start();
-
+   
     if (isset($_SESSION['rol']) && $_SESSION['rol'] === 0) {
-        return "../Frontend/overzicht.php";
+        header("Location: ../Frontend/overzicht.php");
+        exit();
     }
 
     include_once '../classes/Class.fetchUser.php';
