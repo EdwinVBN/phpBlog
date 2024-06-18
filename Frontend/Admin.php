@@ -1,8 +1,9 @@
 <?php 
+
     include_once '../classes/Class.fetchPost.php';
     $posts = new FetchPosts();
     $allPost = $posts->fetchPost();
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +53,9 @@
                 <h2>Post Overzicht</h2>
                 <?php foreach( $posts->fetchPost() as $posts ): ?>
                     <article>
-                        <h3><?php echo htmlspecialchars($posts['title']); ?></h3>
+                        <a href="post.php?id=<?php echo htmlspecialchars($posts['id']); ?>" id="Kop">
+                            <?php echo htmlspecialchars($posts['title']); ?>
+                        </a>
                         <br>
                         <p>created_on: <?php echo htmlspecialchars($posts['created_on']); ?> - updated_on: <?php echo htmlspecialchars($posts['updated_on'])?></p>
                     </article>
@@ -189,6 +192,12 @@
         flex: 1;
         position: absolute;
         left: 75%;
+    }
+    #Kop{
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
     }
 </style>
 </html>

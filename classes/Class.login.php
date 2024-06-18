@@ -3,6 +3,7 @@ require_once('../DB/DB.php');
 session_start();
 
 
+
 class User extends DBConnectie {
 
     public $username;
@@ -44,7 +45,7 @@ class User extends DBConnectie {
                     if ($_SESSION['rol'] === 1){
                         header("Location: ../Frontend/Admin.php");
                     }else{
-                        header("Location: ../Frontend/home.php");
+                        header("Location: ../Frontend/overzicht.php");
                     }
                     exit();
                 } else {

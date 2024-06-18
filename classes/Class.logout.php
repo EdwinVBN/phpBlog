@@ -6,7 +6,7 @@ class Logout extends DBConnectie {
     {
         session_start();
         session_destroy();
-        header("Location: ../Frontend/login.php");
+        header("Location: ../login.php");
         exit;
     }
 

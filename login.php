@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../classes/Class.login.php" method="post">
+    <form action="./classes/Class.login.php" method="post">
         <label for="username">Username</label><br>
         <input name="username" type="text"><br><br>
 
